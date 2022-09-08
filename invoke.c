@@ -47,10 +47,15 @@ void invoke(char *command, char *arg, unsigned int iarg, int line)
  * @arg: string arg
  * @iarg: int arg
  * @line: line number
+ * @message: custom error message
  */
-void check_error(char *opcode, char *arg, unsigned int iarg, int line, char *message)
+void check_error(char *opcode,
+		 char *arg, unsigned int iarg, int line, char *message)
 {
-	if ((!strcmp(opcode, "push") && (arg == NULL || (iarg == 0 && arg != NULL && arg[0] != '0'))) || (!strcmp(opcode, "pint") && g_stack == NULL))
+	if (
+	    (!strcmp(opcode, "push") &&
+	     (arg == NULL || (iarg == 0 && arg != NULL && arg[0] != '0'))) ||
+	    (!strcmp(opcode, "pint") && g_stack == NULL))
 	{
 		fprintf(stderr, "L%d: %s\n", line, message);
 		exit(EXIT_FAILURE);
