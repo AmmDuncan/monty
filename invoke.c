@@ -50,7 +50,7 @@ void invoke(char *command, char *arg, unsigned int iarg, int line)
  */
 void check_error(char *opcode, char *arg, unsigned int iarg, int line, char *message)
 {
-	if (arg == NULL || (iarg == 0 && arg != NULL && arg[0] != '0'))
+	if ((!strcmp(opcode, "push") && (arg == NULL || (iarg == 0 && arg != NULL && arg[0] != '0'))) || (!strcmp(opcode, "pint") && g_stack == NULL))
 	{
 		fprintf(stderr, "L%d: %s\n", line, message);
 		exit(EXIT_FAILURE);
