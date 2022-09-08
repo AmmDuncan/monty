@@ -26,6 +26,8 @@ void invoke(char *command, char *arg, unsigned int iarg, int line)
 	}
 	else if (!strcmp(command, "pall"))
 		print_stack(g_stack);
+	else if (!strcmp(command, "nop"))
+		;
 	else
 	{
 		char msg[100] = "unknown instruction ";
