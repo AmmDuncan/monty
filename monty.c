@@ -28,9 +28,10 @@ int main(int argc, char **argv)
 	while ((c = getc(fptr)) != EOF)
 	{
 		content[i] = c;
-		i++;
+		if (!((c == '\n' || c == ' ') && content[i - 1] == '\n'))
+			i++;
 	}
-	while ((line = strsep((char **)&content, "\n")) != NULL)
+	while ((line = strsep((char **)&content, "\n")))
 	{
 		linecp = line;
 		command = strtok(linecp, " ");
