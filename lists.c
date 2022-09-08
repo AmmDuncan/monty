@@ -10,6 +10,7 @@ void push(stack_t **stack, unsigned int n)
 	stack_t *new_node;
 
 	new_node = (stack_t *)malloc(sizeof(stack_t));
+	check_malloc(new_node);
 
 	new_node->n = n;
 	new_node->next = *stack;
