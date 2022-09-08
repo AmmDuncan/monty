@@ -3,14 +3,19 @@
 /**
  * invoke - take command and run code
  * @command: command to run
- * @arg: argument to pass with command
+ * @arg: str argument
+ * @iarg: int argument
+ * @line: line number
  */
-void invoke(char *command, unsigned int *arg)
+void invoke(char *command, char *arg, unsigned int iarg, int line)
 {
 	/*int ind = 0;*/
 
 	if (!strcmp(command, "push"))
-		push(&g_stack, *arg);
+	{
+		check_error(command, arg, iarg, line);
+		push(&g_stack, iarg);
+	}
 	if (!strcmp(command, "pall"))
 		print_stack(g_stack);
 
@@ -28,4 +33,14 @@ void invoke(char *command, unsigned int *arg)
 * ind++;
 * }
 */
+}
+
+/***/
+void check_error(char *opcode, char *arg, unsigned int iarg, int line)
+{
+	if (arg == NULL || (iarg == 0 && arg != NULL && arg[0] != '0'))
+	{
+		printf("L%d: usage: %s integer", line, opcode);
+		exit(EXIT_FAILURE);
+	}
 }

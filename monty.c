@@ -38,14 +38,8 @@ int main(int argc, char **argv)
 		if (command == NULL)
 			break;
 		if (arg != NULL)
-		{
 			iarg = atoi(arg);
-			invoke(command, (unsigned int *)&iarg, lnum);
-		}
-		else
-		{
-			invoke(command, (unsigned int *)&iarg, lnum);
-		}
+		invoke(command, arg, iarg, lnum);
 		lnum++;
 	};
 	free(toFree);
