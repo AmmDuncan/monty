@@ -35,7 +35,14 @@ void invoke(char *command, char *arg, unsigned int iarg, int line)
 */
 }
 
-/***/
+/**
+ * check_error - check if error occured
+ *
+ * @opcode: name of command
+ * @arg: string arg
+ * @iarg: int arg
+ * @line: line number
+ */
 void check_error(char *opcode, char *arg, unsigned int iarg, int line)
 {
 	if (arg == NULL || (iarg == 0 && arg != NULL && arg[0] != '0'))
