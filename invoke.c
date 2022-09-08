@@ -76,3 +76,16 @@ void check_error(char *opcode,
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * check_malloc - check if malloc failed
+ * @ptr: point to allocated address
+ */
+void check_malloc(void *ptr)
+{
+	if (ptr == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+}

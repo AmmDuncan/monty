@@ -36,6 +36,7 @@ typedef struct instruction_s
 
 /* str helpers */
 char *strsep(char **stringp, const char *delim);
+void check_malloc(void *ptr);
 
 extern stack_t *g_stack;
 
