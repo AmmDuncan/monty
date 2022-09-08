@@ -4,17 +4,20 @@
  * push - push number onto stack
  * @stack: pointer to stack
  * @n: number to push onto stack
+ * @line: line number
  */
-void push(stack_t **stack, unsigned int n)
+void push(stack_t **stack, unsigned int n, int line)
 {
 	stack_t *new_node;
 
 	new_node = (stack_t *)malloc(sizeof(stack_t));
 
-	/*
-	 * if (stack == NULL || new_node == NULL)
-	 * return (NULL);
-	 */
+
+	if (stack == NULL || new_node == NULL)
+	{
+		printf("L%d: usage: push integer", line);
+		exit(EXIT_FAILURE);
+	}
 
 	new_node->n = n;
 	new_node->next = *stack;

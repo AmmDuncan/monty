@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	char *fname, *line, *linecp, *content, *toFree, *command, *arg;
 	FILE *fptr;
 	char c;
-	int i = 0, iarg;
+	int lnum = 1, i = 0, iarg;
 
 	if (argc != 2)
 	{
@@ -40,14 +40,14 @@ int main(int argc, char **argv)
 		if (arg != NULL)
 		{
 			iarg = atoi(arg);
-			invoke(command, (unsigned int *)&iarg);
+			invoke(command, (unsigned int *)&iarg, lnum);
 		}
 		else
 		{
-			invoke(command, (unsigned int *)&iarg);
+			invoke(command, (unsigned int *)&iarg, lnum);
 		}
+		lnum++;
 	};
-
 	free(toFree);
 	return (0);
 }
