@@ -3,6 +3,7 @@
 #include "monty.h"
 
 void push(stack_t **stack, unsigned int n);
+int pop(stack_t **head, unsigned int index);
 void print_stack(const stack_t *h);
 
 void invoke(char *command, char *arg, unsigned int iarg, int line);
