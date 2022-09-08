@@ -15,9 +15,9 @@
  */
 typedef struct stack_s
 {
-  int n;
-  struct stack_s *prev;
-  struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -30,11 +30,13 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-  char *opcode;
-  void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /* str helpers */
-char *strsep(char **stringp, const char *delim);
+/* char *strsep(char **stringp, const char *delim); */
+
+extern stack_t *g_stack;
 
 #endif

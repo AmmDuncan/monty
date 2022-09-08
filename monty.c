@@ -1,4 +1,6 @@
-#include "monty.h"
+#include "lists.h"
+
+stack_t *g_stack = NULL;
 
 /**
  * main - simple monty compiler
@@ -18,13 +20,11 @@ int main(int argc, char **argv)
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
 	fname = argv[1];
 	fptr = fopen(fname, "r");
 	toFree = content = malloc(sizeof(char) * 1000);
 
-	printf("%d: ", lnum);
-	while ((c=getc(fptr)) != EOF)
+	while ((c = getc(fptr)) != EOF)
 	{
 		content[i] = c;
 		i++;
@@ -33,13 +33,21 @@ int main(int argc, char **argv)
 	while ((line = strsep((char **)&content, "\n")) != NULL)
 	{
 		linecp = line;
-		command = strsep(&linecp, " \t");
-		arg = strsep(&linecp, " \t");
-	       	/*iarg = atoi(arg);*/
-
-		printf("Command: %s, Arg: %s\n", command, arg);
+		command = strtok(linecp, " ");
+		arg = strtok(NULL, " ");
+		if (command == NULL)
+			break;
+		if (arg != NULL)
+		{
+			iarg = atoi(arg);
+			invoke(command, (unsigned int *)&iarg);
+		}
+		else
+		{
+			invoke(command, (unsigned int *)&iarg);
+		}
 	};
+
 	free(toFree);
 	return (0);
 }
-
