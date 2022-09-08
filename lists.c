@@ -48,7 +48,7 @@ void print_stack(const stack_t *h)
 #include "lists.h"
 
 /**
- * delete_dnodeint_at_index - remove node from list
+ * pop - remove node from list
  * @head: pionts to pointer to head
  * @index: position to remove item
  * Return: 1 if successful -1 if not
