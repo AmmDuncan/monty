@@ -47,7 +47,7 @@ void check_error(char *opcode, char *arg, unsigned int iarg, int line)
 {
 	if (arg == NULL || (iarg == 0 && arg != NULL && arg[0] != '0'))
 	{
-		printf("L%d: usage: %s integer", line, opcode);
+		fprintf(stderr, "L%d: usage: %s integer\n", line, opcode);
 		exit(EXIT_FAILURE);
 	}
 }
