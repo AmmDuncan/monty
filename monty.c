@@ -22,6 +22,7 @@ int main(int argc, char **argv)
 	}
 	fname = argv[1];
 	fptr = fopen(fname, "r");
+	check_file_error(fptr, fname);
 	toFree = content = malloc(sizeof(char) * 1000);
 
 	while ((c = getc(fptr)) != EOF)
@@ -29,7 +30,6 @@ int main(int argc, char **argv)
 		content[i] = c;
 		i++;
 	}
-
 	while ((line = strsep((char **)&content, "\n")) != NULL)
 	{
 		linecp = line;
@@ -44,4 +44,19 @@ int main(int argc, char **argv)
 	};
 	free(toFree);
 	return (0);
+}
+
+/**
+ * check_file_error - check if file opening failed
+ *
+ * @fptr: point to file
+ * @fname: name of file
+ */
+void check_file_error(FILE *fptr, char *fname)
+{
+	if (fptr == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s", fname);
+		exit(EXIT_FAILURE);
+	}
 }
