@@ -25,7 +25,7 @@ void invoke(char *command, char *arg, unsigned int iarg, int line)
 		print_stack(g_stack);
 	else
 	{
-		char *msg = "unknown instruction ";
+		char msg[100] = "unknown instruction ";
 
 		strcat(msg, command);
 		check_error(command, arg, iarg, line, msg);
