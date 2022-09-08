@@ -56,7 +56,7 @@ void check_file_error(FILE *fptr, char *fname)
 {
 	if (fptr == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s", fname);
+		fprintf(stderr, "Error: Can't open file %s\n", fname);
 		exit(EXIT_FAILURE);
 	}
 }
