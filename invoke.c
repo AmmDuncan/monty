@@ -7,7 +7,7 @@
  */
 void invoke(char *command, unsigned int *arg)
 {
-	int ind = 0;
+	/*int ind = 0;*/
 
 	if (!strcmp(command, "push"))
 		push(&g_stack, *arg);

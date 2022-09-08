@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	char *fname, *line, *linecp, *content, *toFree, *command, *arg;
 	FILE *fptr;
 	char c;
-	int lnum = 1, i = 0, iarg;
+	int i = 0, iarg;
 
 	if (argc != 2)
 	{

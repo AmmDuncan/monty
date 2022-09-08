@@ -35,7 +35,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /* str helpers */
-/* char *strsep(char **stringp, const char *delim); */
+char *strsep(char **stringp, const char *delim);
 
 extern stack_t *g_stack;
 
