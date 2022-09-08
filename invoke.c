@@ -13,11 +13,14 @@ void invoke(char *command, char *arg, unsigned int iarg, int line)
 
 	if (!strcmp(command, "push"))
 	{
-		check_error(command, arg, iarg, line);
+		check_error(command, arg, iarg, line, "usage: push integer");
 		push(&g_stack, iarg);
 	}
 	if (!strcmp(command, "pint") && g_stack != NULL)
+	{
+		check_error(command, arg, iarg, line, "can't pint, stack empty");
 		printf("%d\n", g_stack->n);
+	}
 	if (!strcmp(command, "pall"))
 		print_stack(g_stack);
 
@@ -45,11 +48,11 @@ void invoke(char *command, char *arg, unsigned int iarg, int line)
  * @iarg: int arg
  * @line: line number
  */
-void check_error(char *opcode, char *arg, unsigned int iarg, int line)
+void check_error(char *opcode, char *arg, unsigned int iarg, int line, char *message)
 {
 	if (arg == NULL || (iarg == 0 && arg != NULL && arg[0] != '0'))
 	{
-		fprintf(stderr, "L%d: usage: %s integer\n", line, opcode);
+		fprintf(stderr, "L%d: %s\n", line, message);
 		exit(EXIT_FAILURE);
 	}
 }
