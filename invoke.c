@@ -16,7 +16,7 @@ void invoke(char *command, char *arg, unsigned int iarg, int line)
 		check_error(command, arg, iarg, line);
 		push(&g_stack, iarg);
 	}
-	if (!strcmp(command, "pint"))
+	if (!strcmp(command, "pint") && g_stack != NULL)
 		printf("%d\n", g_stack->n);
 	if (!strcmp(command, "pall"))
 		print_stack(g_stack);
