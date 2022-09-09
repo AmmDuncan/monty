@@ -34,7 +34,7 @@ void (*get_func(char *opcode))(stack_t **, unsigned int)
 	    {"mul", mul_handler},
 	    {"mod", mod_handler},
 	    {NULL, NULL}};
-	int i = 0, len = 10;
+	int i = 0, len = 11;
 
 	for (; i < len; i++)
 	{
