@@ -10,8 +10,6 @@ void swap(stack_t **head);
 void add(stack_t **head);
 
 void (*get_func(char *opcode))(stack_t **, unsigned int);
-void invoke(char *command, unsigned int iarg, int line);
-void check_error(char *opcode, char *arg, unsigned int iarg, int line, char *message);
 void check_file_error(FILE *fptr, char *fname);
 void free_stack(stack_t *h);
 
