@@ -19,7 +19,7 @@ void check_malloc(void *ptr)
  * @opcode: command to match against function
  * Return: pointer to function if found, else NULL
  */
-void (*get_func(char *opcode))(_stack_t **, unsigned int)
+void (*get_func(char *opcode))(stack_t **, unsigned int)
 {
 	instruction_t func_list[] = {
 	    {"push", push_handler},

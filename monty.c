@@ -73,7 +73,7 @@ void handle_lines(char *content, int linenum, int totallines)
 
 	while ((line = strsep((char **)&content, "\n")))
 	{
-		void (*f)(_stack_t **, unsigned int);
+		void (*f)(stack_t **, unsigned int);
 
 		linecp = line;
 		command = strtok(linecp, " ");

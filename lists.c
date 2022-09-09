@@ -5,11 +5,11 @@
  * @stack: pointer to stack
  * @n: number to push onto stack
  */
-void push(_stack_t **stack, unsigned int n)
+void push(stack_t **stack, unsigned int n)
 {
-	_stack_t *new_node;
+	stack_t *new_node;
 
-	new_node = (_stack_t *)malloc(sizeof(_stack_t));
+	new_node = (stack_t *)malloc(sizeof(stack_t));
 	check_malloc(new_node);
 
 	new_node->n = n;
@@ -29,10 +29,10 @@ void push(_stack_t **stack, unsigned int n)
  * Description: print all elements in a doubly linked list
  * Return: size of list
  */
-void print_stack(const _stack_t *h)
+void print_stack(const stack_t *h)
 {
 	size_t size;
-	const _stack_t *cur_node;
+	const stack_t *cur_node;
 
 	size = 0;
 	cur_node = h;
@@ -53,9 +53,9 @@ void print_stack(const _stack_t *h)
  * @index: position to remove item
  * Return: 1 if successful -1 if not
  */
-int pop(_stack_t **head, unsigned int index)
+int pop(stack_t **head, unsigned int index)
 {
-	_stack_t *target, *prev, *dummy;
+	stack_t *target, *prev, *dummy;
 	unsigned int len = 0, count = 0;
 
 	dummy = *head;
@@ -101,9 +101,9 @@ int pop(_stack_t **head, unsigned int index)
  * free_stack - free space used by list
  * @h: points to head of list
  */
-void free_stack(_stack_t *h)
+void free_stack(stack_t *h)
 {
-	_stack_t *cur, *holder;
+	stack_t *cur, *holder;
 
 	cur = h;
 
@@ -120,9 +120,9 @@ void free_stack(_stack_t *h)
  *
  * @head: points to head of function
  */
-void swap(_stack_t **head)
+void swap(stack_t **head)
 {
-	_stack_t *top = *head, *next = (*head)->next;
+	stack_t *top = *head, *next = (*head)->next;
 	int n = (*head)->n;
 
 	top->n = next->n;

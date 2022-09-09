@@ -5,7 +5,7 @@
  * @stack: stack to work with
  * @line: line number
  */
-void div_handler(_stack_t **stack, unsigned int line)
+void div_handler(stack_t **stack, unsigned int line)
 {
 	if (*stack == NULL || (*stack && (*stack)->next == NULL))
 	{
@@ -25,7 +25,7 @@ void div_handler(_stack_t **stack, unsigned int line)
  * @stack: stack to work with
  * @line: line number
  */
-void mul_handler(_stack_t **stack, unsigned int line)
+void mul_handler(stack_t **stack, unsigned int line)
 {
 	if (*stack == NULL || (*stack && (*stack)->next == NULL))
 	{
@@ -40,7 +40,7 @@ void mul_handler(_stack_t **stack, unsigned int line)
  * @stack: stack to work with
  * @line: line number
  */
-void mod_handler(_stack_t **stack, unsigned int line)
+void mod_handler(stack_t **stack, unsigned int line)
 {
 	if (*stack == NULL || (*stack && (*stack)->next == NULL))
 	{

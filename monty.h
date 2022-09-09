@@ -18,7 +18,7 @@ typedef struct stack_s
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
-} _stack_t;
+} stack_t;
 
 /**
  * struct instruction_s - opcode and its function
@@ -31,7 +31,7 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(_stack_t **stack, unsigned int line_number);
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /* str helpers */
@@ -42,7 +42,7 @@ void handle_lines(char *content, int linenum, int totallines);
 typedef struct data_s
 {
 	char *arg;
-	_stack_t *stack;
+	stack_t *stack;
 } data_t;
 
 extern data_t *data;
