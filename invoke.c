@@ -100,8 +100,9 @@ void (*get_func(char *opcode))(stack_t **, unsigned int)
 	instruction_t func_list[] = {
 	    {"push", push_handler},
 	    {"pall", pall_handler},
+	    {"pint", pint_handler},
 	    {NULL, NULL}};
-	int i = 0, len = 2;
+	int i = 0, len = 3;
 
 	for (; i < len; i++)
 	{

@@ -28,15 +28,3 @@ void push_handler(stack_t **stack, unsigned int line)
 	}
 	push(stack, iarg);
 }
-
-/**
- * pall_handler - handle pall command
- * @stack: stack to work with
- * @line: line number
- */
-void pall_handler(stack_t **stack, unsigned int line)
-{
-	(void)line;
-
-	print_stack(*stack);
-}
