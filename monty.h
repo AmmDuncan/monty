@@ -39,6 +39,12 @@ char *strsep(char **stringp, const char *delim);
 void check_malloc(void *ptr);
 void handle_lines(char *content, int linenum, int totallines);
 
-extern stack_t *g_stack;
+typedef struct data_s
+{
+	char *arg;
+	stack_t *stack;
+} data_t;
+
+extern data_t *data;
 
 #endif

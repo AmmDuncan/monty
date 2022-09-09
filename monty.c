@@ -1,6 +1,6 @@
 #include "lists.h"
 
-stack_t *g_stack = NULL;
+data_t *data = NULL;
 
 /**
  * main - simple monty compiler
@@ -21,6 +21,7 @@ int main(int argc, char **argv)
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
+	data = malloc(sizeof(data_t));
 	fname = argv[1];
 	fptr = fopen(fname, "r");
 	check_file_error(fptr, fname);
@@ -36,7 +37,7 @@ int main(int argc, char **argv)
 		n += (content[j] == '\n');
 	handle_lines(content, lnum, n);
 	free(toFree);
-	free_stack(g_stack);
+	free_stack(data->stack);
 	fclose(fptr);
 	return (0);
 }
@@ -64,15 +65,15 @@ void check_file_error(FILE *fptr, char *fname)
  */
 void handle_lines(char *content, int linenum, int totallines)
 {
-	char *linecp, *command, *arg, *line;
-	int iarg, lnum = linenum;
+	char *linecp, *command, *line;
+	int lnum = linenum;
+	void (*f)(stack_t **, unsigned int);
 
 	while ((line = strsep((char **)&content, "\n")))
 	{
 		linecp = line;
 		command = strtok(linecp, " ");
-		arg = strtok(NULL, " ");
-		/*printf("Command: %s, Arg: %s\n", command, arg);*/
+		data->arg = strtok(NULL, " ");
 		if (command == NULL && lnum >= totallines)
 			break;
 		else if (command == NULL)
@@ -80,10 +81,14 @@ void handle_lines(char *content, int linenum, int totallines)
 			lnum++;
 			continue;
 		}
-		if (arg != NULL)
-			iarg = atoi(arg);
-		invoke(command, arg, iarg, lnum);
+		f = get_func(command);
+
+		if (f == NULL)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s", linenum, command);
+			exit(EXIT_FAILURE);
+		}
+		(*f)(&data->stack, lnum);
 		lnum++;
 	};
-	free(line);
 }
