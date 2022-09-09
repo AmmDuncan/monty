@@ -26,3 +26,14 @@ void pint_handler(stack_t **stack, unsigned int line)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * pint_handler - handle pint command
+ * @stack: stack to work with
+ * @line: line number
+ */
+void nop_handler(stack_t **stack, unsigned int line)
+{
+	(void)stack;
+	(void)line;
+}
