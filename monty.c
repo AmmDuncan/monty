@@ -35,6 +35,7 @@ int main(int argc, char **argv)
 	}
 	for (j = 0, n = 0; content[j]; j++)
 		n += (content[j] == '\n');
+
 	handle_lines(content, lnum, n);
 	free(toFree);
 	free(data);
@@ -68,10 +69,11 @@ void handle_lines(char *content, int linenum, int totallines)
 {
 	char *linecp, *command, *line;
 	int lnum = linenum;
-	void (*f)(stack_t **, unsigned int);
 
 	while ((line = strsep((char **)&content, "\n")))
 	{
+		void (*f)(stack_t **, unsigned int);
+
 		linecp = line;
 		command = strtok(linecp, " ");
 		data->arg = strtok(NULL, " ");
@@ -83,10 +85,9 @@ void handle_lines(char *content, int linenum, int totallines)
 			continue;
 		}
 		f = get_func(command);
-
 		if (f == NULL)
 		{
-			fprintf(stderr, "L%d: unknown instruction %s", linenum, command);
+			fprintf(stderr, "L%d: unknown instruction %s\n", lnum, command);
 			exit(EXIT_FAILURE);
 		}
 		(*f)(&data->stack, lnum);

@@ -64,7 +64,8 @@ void check_error(char *opcode,
 	     (arg == NULL ||
 	      (iarg == 0 && arg != NULL && (strcmp(arg, "0") && strcmp(arg, "-0"))) ||
 	      pusherr)) ||
-	    ((!strcmp(opcode, "pint") || !strcmp(opcode, "pop")) && data->stack == NULL))
+	    ((!strcmp(opcode, "pint") || !strcmp(opcode, "pop")) &&
+	     data->stack == NULL))
 	{
 		fprintf(stderr, "L%d: %s\n", line, message);
 		exit(EXIT_FAILURE);
@@ -90,8 +91,9 @@ void check_malloc(void *ptr)
 }
 
 /**
- * get_func
+ * get_func - select appropriate func
  * @opcode: command to match against function
+ * Return: pointer to function if found, else NULL
  */
 void (*get_func(char *opcode))(stack_t **, unsigned int)
 {
@@ -99,7 +101,7 @@ void (*get_func(char *opcode))(stack_t **, unsigned int)
 	    {"push", push_handler},
 	    {"pall", pall_handler},
 	    {NULL, NULL}};
-	int i = 0, len = 3;
+	int i = 0, len = 2;
 
 	for (; i < len; i++)
 	{
