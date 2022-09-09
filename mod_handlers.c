@@ -58,3 +58,18 @@ void swap_handler(stack_t **stack, unsigned int line)
 	}
 	swap(stack);
 }
+
+/**
+ * add_handler - handle add command
+ * @stack: stack to work with
+ * @line: line number
+ */
+void add_handler(stack_t **stack, unsigned int line)
+{
+	if (*stack == NULL || (*stack && (*stack)->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line);
+		exit(EXIT_FAILURE);
+	}
+	add(stack);
+}
