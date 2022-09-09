@@ -5,7 +5,7 @@
  * @stack: stack to work with
  * @line: line number
  */
-void div_handler(stack_t **stack, unsigned int line)
+void div_handler(_stack_t **stack, unsigned int line)
 {
 	if (*stack == NULL || (*stack && (*stack)->next == NULL))
 	{
@@ -17,5 +17,5 @@ void div_handler(stack_t **stack, unsigned int line)
 		fprintf(stderr, "L%d: division by zero\n", line);
 		exit(EXIT_FAILURE);
 	}
-	div(stack);
+	div_stack(stack);
 }

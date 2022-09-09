@@ -5,7 +5,7 @@
  * @stack: stack to work with
  * @line: line number
  */
-void pall_handler(stack_t **stack, unsigned int line)
+void pall_handler(_stack_t **stack, unsigned int line)
 {
 	(void)line;
 
@@ -17,7 +17,7 @@ void pall_handler(stack_t **stack, unsigned int line)
  * @stack: stack to work with
  * @line: line number
  */
-void pint_handler(stack_t **stack, unsigned int line)
+void pint_handler(_stack_t **stack, unsigned int line)
 {
 	if (*stack == NULL)
 	{
@@ -32,7 +32,7 @@ void pint_handler(stack_t **stack, unsigned int line)
  * @stack: stack to work with
  * @line: line number
  */
-void nop_handler(stack_t **stack, unsigned int line)
+void nop_handler(_stack_t **stack, unsigned int line)
 {
 	(void)stack;
 	(void)line;

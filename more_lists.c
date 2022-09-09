@@ -5,9 +5,9 @@
  *
  * @head: points to head of function
  */
-void add(stack_t **head)
+void add(_stack_t **head)
 {
-	stack_t *top = *head, *next = (*head)->next;
+	_stack_t *top = *head, *next = (*head)->next;
 	int n = top->n + next->n;
 
 	next->n = n;
@@ -21,9 +21,9 @@ void add(stack_t **head)
  *
  * @head: points to head of function
  */
-void sub(stack_t **head)
+void sub(_stack_t **head)
 {
-	stack_t *top = *head, *next = (*head)->next;
+	_stack_t *top = *head, *next = (*head)->next;
 	int n = next->n - top->n;
 
 	next->n = n;
@@ -33,13 +33,13 @@ void sub(stack_t **head)
 }
 
 /**
- * div - handle dividing elements
+ * div_stack - handle dividing elements
  *
  * @head: points to head of function
  */
-void div(stack_t **head)
+void div_stack(_stack_t **head)
 {
-	stack_t *top = *head, *next = (*head)->next;
+	_stack_t *top = *head, *next = (*head)->next;
 	int n = next->n / top->n;
 
 	next->n = n;

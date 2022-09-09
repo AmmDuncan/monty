@@ -5,7 +5,7 @@
  * @stack: stack to work with
  * @line: line number
  */
-void push_handler(stack_t **stack, unsigned int line)
+void push_handler(_stack_t **stack, unsigned int line)
 {
 	int iarg, pusherr = 0, i = 0;
 
@@ -34,7 +34,7 @@ void push_handler(stack_t **stack, unsigned int line)
  * @stack: stack to work with
  * @line: line number
  */
-void pop_handler(stack_t **stack, unsigned int line)
+void pop_handler(_stack_t **stack, unsigned int line)
 {
 	if (*stack == NULL)
 	{
@@ -49,7 +49,7 @@ void pop_handler(stack_t **stack, unsigned int line)
  * @stack: stack to work with
  * @line: line number
  */
-void swap_handler(stack_t **stack, unsigned int line)
+void swap_handler(_stack_t **stack, unsigned int line)
 {
 	if (*stack == NULL || (*stack && (*stack)->next == NULL))
 	{
@@ -64,7 +64,7 @@ void swap_handler(stack_t **stack, unsigned int line)
  * @stack: stack to work with
  * @line: line number
  */
-void add_handler(stack_t **stack, unsigned int line)
+void add_handler(_stack_t **stack, unsigned int line)
 {
 	if (*stack == NULL || (*stack && (*stack)->next == NULL))
 	{
@@ -79,7 +79,7 @@ void add_handler(stack_t **stack, unsigned int line)
  * @stack: stack to work with
  * @line: line number
  */
-void sub_handler(stack_t **stack, unsigned int line)
+void sub_handler(_stack_t **stack, unsigned int line)
 {
 	if (*stack == NULL || (*stack && (*stack)->next == NULL))
 	{
