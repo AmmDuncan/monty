@@ -96,3 +96,21 @@ int pop(stack_t **head, unsigned int index)
 	}
 	return (-1);
 }
+
+/**
+ * free_dlistint - free space used by list
+ * @h: points to head of list
+ */
+void free_stack(stack_t *h)
+{
+	stack_t *cur, *holder;
+
+	cur = h;
+
+	while (cur != NULL)
+	{
+		holder = cur->next;
+		free(cur);
+		cur = holder;
+	}
+}
