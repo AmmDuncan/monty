@@ -24,7 +24,6 @@ int main(int argc, char **argv)
 	fname = argv[1];
 	fptr = fopen(fname, "r");
 	check_file_error(fptr, fname);
-	fclose(fptr);
 	toFree = content = malloc(sizeof(char) * 1000);
 	check_malloc(toFree);
 	while ((c = getc(fptr)) != EOF)
@@ -38,6 +37,7 @@ int main(int argc, char **argv)
 	handle_lines(content, lnum, n);
 	free(toFree);
 	free_stack(g_stack);
+	fclose(fptr);
 	return (0);
 }
 
