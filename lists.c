@@ -98,7 +98,7 @@ int pop(stack_t **head, unsigned int index)
 }
 
 /**
- * free_dlistint - free space used by list
+ * free_stack - free space used by list
  * @h: points to head of list
  */
 void free_stack(stack_t *h)
