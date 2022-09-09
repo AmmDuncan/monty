@@ -55,7 +55,7 @@ void check_error(char *opcode,
 {
 	int i, pusherr = 0;
 
-	if (!strcmp(opcode, "push"))
+	if (!strcmp(opcode, "push") && arg != NULL)
 		for (i = 0; arg[i] != '\0'; i++)
 			if (!isdigit(arg[i]) && arg[i] != '-')
 				pusherr = 1;
