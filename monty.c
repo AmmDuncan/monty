@@ -37,6 +37,7 @@ int main(int argc, char **argv)
 		n += (content[j] == '\n');
 	handle_lines(content, lnum, n);
 	free(toFree);
+	free(data);
 	free_stack(data->stack);
 	fclose(fptr);
 	return (0);
