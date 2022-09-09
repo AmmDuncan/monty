@@ -37,6 +37,7 @@ typedef struct instruction_s
 /* str helpers */
 char *strsep(char **stringp, const char *delim);
 void check_malloc(void *ptr);
+void handle_lines(char *content, int linenum, int totallines);
 
 extern stack_t *g_stack;
 

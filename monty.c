@@ -10,10 +10,11 @@ stack_t *g_stack = NULL;
  */
 int main(int argc, char **argv)
 {
-	char *fname, *line, *linecp, *content, *toFree, *command, *arg;
+	char *fname, *content, *toFree;
 	FILE *fptr;
 	char c;
-	int lnum = 1, i = 0, iarg;
+	int lnum = 1, i = 0;
+	int j, n;
 
 	if (argc != 2)
 	{
@@ -28,21 +29,12 @@ int main(int argc, char **argv)
 	while ((c = getc(fptr)) != EOF)
 	{
 		content[i] = c;
-		if (!((c == '\n' || c == ' ') && content[i - 1] == '\n'))
-			i++;
+		/*if (!((c == '\n' || c == ' ') && content[i - 1] == '\n'))*/
+		i++;
 	}
-	while ((line = strsep((char **)&content, "\n")))
-	{
-		linecp = line;
-		command = strtok(linecp, " ");
-		arg = strtok(NULL, " ");
-		if (command == NULL)
-			break;
-		if (arg != NULL)
-			iarg = atoi(arg);
-		invoke(command, arg, iarg, lnum);
-		lnum++;
-	};
+	for (j = 0, n = 0; content[j]; j++)
+		n += (content[j] == '\n');
+	handle_lines(content, lnum, n);
 	free(toFree);
 	return (0);
 }
@@ -60,4 +52,34 @@ void check_file_error(FILE *fptr, char *fname)
 		fprintf(stderr, "Error: Can't open file %s\n", fname);
 		exit(EXIT_FAILURE);
 	}
+}
+
+/**
+ * handle_lines - get lines from content and invoke commands
+ * @content: content of bytescode file
+ * @linenum: line number
+ * @totallines: total number of lines
+ */
+void handle_lines(char *content, int linenum, int totallines)
+{
+	char *linecp, *command, *arg, *line;
+	int iarg, lnum = linenum;
+
+	while ((line = strsep((char **)&content, "\n")))
+	{
+		linecp = line;
+		command = strtok(linecp, " ");
+		arg = strtok(NULL, " ");
+		if (command == NULL && lnum >= totallines)
+			break;
+		else if (command == NULL)
+		{
+			lnum++;
+			continue;
+		}
+		if (arg != NULL)
+			iarg = atoi(arg);
+		invoke(command, arg, iarg, lnum);
+		lnum++;
+	};
 }
