@@ -11,6 +11,7 @@ void add(_stack_t **head);
 void sub(_stack_t **head);
 void div_stack(_stack_t **head);
 void mul_stack(_stack_t **head);
+void mod_stack(_stack_t **head);
 
 void (*get_func(char *opcode))(_stack_t **, unsigned int);
 void check_file_error(FILE *fptr, char *fname);
@@ -27,5 +28,6 @@ void add_handler(_stack_t **stack, unsigned int line);
 void sub_handler(_stack_t **stack, unsigned int line);
 void div_handler(_stack_t **stack, unsigned int line);
 void mul_handler(_stack_t **stack, unsigned int line);
+void mod_handler(_stack_t **stack, unsigned int line);
 
 #endif

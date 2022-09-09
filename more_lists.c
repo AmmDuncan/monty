@@ -63,3 +63,19 @@ void mul_stack(_stack_t **head)
 
 	free(top);
 }
+
+/**
+ * mod_stack - handle modiding elements
+ *
+ * @head: points to head of function
+ */
+void mod_stack(_stack_t **head)
+{
+	_stack_t *top = *head, *next = (*head)->next;
+	int n = next->n % top->n;
+
+	next->n = n;
+	*head = next;
+
+	free(top);
+}

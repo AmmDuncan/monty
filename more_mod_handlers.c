@@ -34,3 +34,18 @@ void mul_handler(_stack_t **stack, unsigned int line)
 	}
 	mul_stack(stack);
 }
+
+/**
+ * mod_handler - handle mod command
+ * @stack: stack to work with
+ * @line: line number
+ */
+void mod_handler(_stack_t **stack, unsigned int line)
+{
+	if (*stack == NULL || (*stack && (*stack)->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line);
+		exit(EXIT_FAILURE);
+	}
+	mod_stack(stack);
+}

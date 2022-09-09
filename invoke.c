@@ -32,6 +32,7 @@ void (*get_func(char *opcode))(_stack_t **, unsigned int)
 	    {"sub", sub_handler},
 	    {"div", div_handler},
 	    {"mul", mul_handler},
+	    {"mod", mod_handler},
 	    {NULL, NULL}};
 	int i = 0, len = 10;
 
