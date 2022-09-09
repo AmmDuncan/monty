@@ -84,4 +84,5 @@ void handle_lines(char *content, int linenum, int totallines)
 		invoke(command, arg, iarg, lnum);
 		lnum++;
 	};
+	free(line);
 }
