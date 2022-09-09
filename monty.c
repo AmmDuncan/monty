@@ -70,7 +70,7 @@ void handle_lines(char *content, int linenum, int totallines)
 		linecp = line;
 		command = strtok(linecp, " ");
 		arg = strtok(NULL, " ");
-		printf("Command: %s, Arg: %s\n", command, arg);
+		/*printf("Command: %s, Arg: %s\n", command, arg);*/
 		if (command == NULL && lnum >= totallines)
 			break;
 		else if (command == NULL)
