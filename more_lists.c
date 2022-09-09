@@ -24,7 +24,7 @@ void add(stack_t **head)
 void sub(stack_t **head)
 {
 	stack_t *top = *head, *next = (*head)->next;
-	int n = top->n - next->n;
+	int n = next->n - top->n;
 
 	next->n = n;
 	*head = next;
