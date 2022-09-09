@@ -19,3 +19,18 @@ void div_handler(_stack_t **stack, unsigned int line)
 	}
 	div_stack(stack);
 }
+
+/**
+ * mul_handler - handle mul command
+ * @stack: stack to work with
+ * @line: line number
+ */
+void mul_handler(_stack_t **stack, unsigned int line)
+{
+	if (*stack == NULL || (*stack && (*stack)->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line);
+		exit(EXIT_FAILURE);
+	}
+	mul_stack(stack);
+}

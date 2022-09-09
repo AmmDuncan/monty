@@ -47,3 +47,19 @@ void div_stack(_stack_t **head)
 
 	free(top);
 }
+
+/**
+ * mul_stack - handle muliding elements
+ *
+ * @head: points to head of function
+ */
+void mul_stack(_stack_t **head)
+{
+	_stack_t *top = *head, *next = (*head)->next;
+	int n = next->n / top->n;
+
+	next->n = n;
+	*head = next;
+
+	free(top);
+}
