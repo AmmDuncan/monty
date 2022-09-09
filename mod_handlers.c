@@ -73,3 +73,18 @@ void add_handler(stack_t **stack, unsigned int line)
 	}
 	add(stack);
 }
+
+/**
+ * sub_handler - handle sub command
+ * @stack: stack to work with
+ * @line: line number
+ */
+void sub_handler(stack_t **stack, unsigned int line)
+{
+	if (*stack == NULL || (*stack && (*stack)->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line);
+		exit(EXIT_FAILURE);
+	}
+	sub(stack);
+}

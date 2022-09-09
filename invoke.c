@@ -29,8 +29,9 @@ void (*get_func(char *opcode))(stack_t **, unsigned int)
 	    {"nop", nop_handler},
 	    {"swap", swap_handler},
 	    {"add", add_handler},
+	    {"sub", sub_handler},
 	    {NULL, NULL}};
-	int i = 0, len = 7;
+	int i = 0, len = 8;
 
 	for (; i < len; i++)
 	{
