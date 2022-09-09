@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <ctype.h>
 
 /**
  * invoke - take command and run code
@@ -52,9 +53,18 @@ void check_error(char *opcode,
 		 int line,
 		 char *message)
 {
+	int i, pusherr = 0;
+
+	if (!strcmp(opcode, "push"))
+		for (i = 0; arg[i] != '\0'; i++)
+			if (!isnumber(arg[i]) && arg[i] != '-')
+				pusherr = 1;
+
 	if (
 	    (!strcmp(opcode, "push") &&
-	     (arg == NULL || (iarg == 0 && arg != NULL && arg[0] != '0'))) ||
+	     (arg == NULL ||
+	      (iarg == 0 && arg != NULL && (strcmp(arg, "0") && strcmp(arg, "-0"))) ||
+	      pusherr)) ||
 	    ((!strcmp(opcode, "pint") || !strcmp(opcode, "pop")) && g_stack == NULL))
 	{
 		fprintf(stderr, "L%d: %s\n", line, message);
