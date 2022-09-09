@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 	fname = argv[1];
 	fptr = fopen(fname, "r");
 	check_file_error(fptr, fname);
-	toFree = content = malloc(sizeof(char) * 1000);
+	toFree = content = malloc(sizeof(char) * 100000);
 	check_malloc(toFree);
 	check_malloc(data);
 	while ((c = getc(fptr)) != EOF)
