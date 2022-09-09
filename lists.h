@@ -17,5 +17,6 @@ void free_stack(stack_t *h);
 void push_handler(stack_t **stack, unsigned int line);
 void pall_handler(stack_t **stack, unsigned int line);
 void pint_handler(stack_t **stack, unsigned int line);
+void pop_handler(stack_t **stack, unsigned int line);
 
 #endif

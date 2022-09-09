@@ -28,3 +28,18 @@ void push_handler(stack_t **stack, unsigned int line)
 	}
 	push(stack, iarg);
 }
+
+/**
+ * pop_handler - handle pop command
+ * @stack: stack to work with
+ * @line: line number
+ */
+void pop_handler(stack_t **stack, unsigned int line)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
+		exit(EXIT_FAILURE);
+	}
+	pop(stack, 0);
+}
