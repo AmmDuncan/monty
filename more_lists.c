@@ -56,7 +56,7 @@ void div_stack(_stack_t **head)
 void mul_stack(_stack_t **head)
 {
 	_stack_t *top = *head, *next = (*head)->next;
-	int n = next->n / top->n;
+	int n = next->n * top->n;
 
 	next->n = n;
 	*head = next;
