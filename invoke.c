@@ -31,8 +31,9 @@ void (*get_func(char *opcode))(_stack_t **, unsigned int)
 	    {"add", add_handler},
 	    {"sub", sub_handler},
 	    {"div", div_handler},
+	    {"mul", mul_handler},
 	    {NULL, NULL}};
-	int i = 0, len = 9;
+	int i = 0, len = 10;
 
 	for (; i < len; i++)
 	{
