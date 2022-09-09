@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 	check_file_error(fptr, fname);
 	toFree = content = malloc(sizeof(char) * 1000);
 	check_malloc(toFree);
+	check_malloc(data);
 	while ((c = getc(fptr)) != EOF)
 	{
 		content[i] = c;
