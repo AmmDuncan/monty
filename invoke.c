@@ -103,8 +103,9 @@ void (*get_func(char *opcode))(stack_t **, unsigned int)
 	    {"pint", pint_handler},
 	    {"pop", pop_handler},
 	    {"nop", nop_handler},
+	    {"swap", swap_handler},
 	    {NULL, NULL}};
-	int i = 0, len = 5;
+	int i = 0, len = 6;
 
 	for (; i < len; i++)
 	{

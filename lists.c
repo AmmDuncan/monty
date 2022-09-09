@@ -114,3 +114,17 @@ void free_stack(stack_t *h)
 		cur = holder;
 	}
 }
+
+/**
+ * swap - handle swaping elements
+ *
+ * @head: points to head of function
+ */
+void swap(stack_t **head)
+{
+	stack_t *top = *head, *next = (*head)->next;
+	int n = (*head)->n;
+
+	top->n = next->n;
+	next->n = n;
+}

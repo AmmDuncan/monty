@@ -28,7 +28,7 @@ void pint_handler(stack_t **stack, unsigned int line)
 }
 
 /**
- * pint_handler - handle pint command
+ * nop_handler - handle nop command
  * @stack: stack to work with
  * @line: line number
  */

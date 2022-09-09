@@ -43,3 +43,18 @@ void pop_handler(stack_t **stack, unsigned int line)
 	}
 	pop(stack, 0);
 }
+
+/**
+ * swap_handler - handle swap command
+ * @stack: stack to work with
+ * @line: line number
+ */
+void swap_handler(stack_t **stack, unsigned int line)
+{
+	if (*stack == NULL || (*stack && (*stack)->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
+		exit(EXIT_FAILURE);
+	}
+	swap(stack);
+}

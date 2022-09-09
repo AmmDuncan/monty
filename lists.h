@@ -3,9 +3,10 @@
 #include "monty.h"
 #include <ctype.h>
 
+void print_stack(const stack_t *h);
 void push(stack_t **stack, unsigned int n);
 int pop(stack_t **head, unsigned int index);
-void print_stack(const stack_t *h);
+void swap(stack_t **head);
 
 void (*get_func(char *opcode))(stack_t **, unsigned int);
 void invoke(char *command, unsigned int iarg, int line);
@@ -19,5 +20,6 @@ void pall_handler(stack_t **stack, unsigned int line);
 void pint_handler(stack_t **stack, unsigned int line);
 void pop_handler(stack_t **stack, unsigned int line);
 void nop_handler(stack_t **stack, unsigned int line);
+void swap_handler(stack_t **stack, unsigned int line);
 
 #endif
