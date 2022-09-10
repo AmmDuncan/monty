@@ -36,6 +36,9 @@ void (*get_func(char *opcode))(stack_t **, unsigned int)
 	    {NULL, NULL}};
 	int i = 0, len = 11;
 
+	if (opcode[0] == '#')
+		return (nop_handler);
+
 	for (; i < len; i++)
 	{
 		if (!strcmp(func_list[i].opcode, opcode))
