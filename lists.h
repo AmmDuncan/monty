@@ -3,32 +3,34 @@
 #include "monty.h"
 #include <ctype.h>
 
-void print_stack(const stack_t *h);
-void push(stack_t **stack, unsigned int n);
-int pop(stack_t **head, unsigned int index);
-void swap(stack_t **head);
-void add(stack_t **head);
-void sub(stack_t **head);
-void div_stack(stack_t **head);
-void mul_stack(stack_t **head);
-void mod_stack(stack_t **head);
+void print_stack(const _stack_t *h);
+void print_stack_chr(const _stack_t *h);
+void push(_stack_t **stack, unsigned int n);
+int pop(_stack_t **head, unsigned int index);
+void swap(_stack_t **head);
+void add(_stack_t **head);
+void sub(_stack_t **head);
+void div_stack(_stack_t **head);
+void mul_stack(_stack_t **head);
+void mod_stack(_stack_t **head);
 
-void (*get_func(char *opcode))(stack_t **, unsigned int);
+void (*get_func(char *opcode))(_stack_t **, unsigned int);
 void check_file_error(FILE *fptr, char *fname);
-void free_stack(stack_t *h);
+void free_stack(_stack_t *h);
 
 /* handlers */
-void push_handler(stack_t **stack, unsigned int line);
-void pall_handler(stack_t **stack, unsigned int line);
-void pint_handler(stack_t **stack, unsigned int line);
-void pop_handler(stack_t **stack, unsigned int line);
-void nop_handler(stack_t **stack, unsigned int line);
-void swap_handler(stack_t **stack, unsigned int line);
-void add_handler(stack_t **stack, unsigned int line);
-void sub_handler(stack_t **stack, unsigned int line);
-void div_handler(stack_t **stack, unsigned int line);
-void mul_handler(stack_t **stack, unsigned int line);
-void mod_handler(stack_t **stack, unsigned int line);
-void pchar_handler(stack_t **stack, unsigned int line);
+void push_handler(_stack_t **stack, unsigned int line);
+void pall_handler(_stack_t **stack, unsigned int line);
+void pint_handler(_stack_t **stack, unsigned int line);
+void pop_handler(_stack_t **stack, unsigned int line);
+void nop_handler(_stack_t **stack, unsigned int line);
+void swap_handler(_stack_t **stack, unsigned int line);
+void add_handler(_stack_t **stack, unsigned int line);
+void sub_handler(_stack_t **stack, unsigned int line);
+void div_handler(_stack_t **stack, unsigned int line);
+void mul_handler(_stack_t **stack, unsigned int line);
+void mod_handler(_stack_t **stack, unsigned int line);
+void pchar_handler(_stack_t **stack, unsigned int line);
+void pstr_handler(_stack_t **stack, unsigned int line);
 
 #endif
