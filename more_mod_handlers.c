@@ -54,3 +54,29 @@ void mod_handler(stack_t **stack, unsigned int line)
 	}
 	mod_stack(stack);
 }
+
+/**
+ * pchar_handler - handle pchar command
+ * @stack: stack to work with
+ * @line: line number
+ */
+void pchar_handler(stack_t **stack, unsigned int line)
+{
+	int n;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
+		exit(EXIT_FAILURE);
+	}
+
+	n = (*stack)->n;
+
+	if (n < 0 || n > 255)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
+		exit(EXIT_FAILURE);
+	}
+
+	putchar(n);
+}

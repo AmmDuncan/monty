@@ -33,8 +33,9 @@ void (*get_func(char *opcode))(stack_t **, unsigned int)
 	    {"div", div_handler},
 	    {"mul", mul_handler},
 	    {"mod", mod_handler},
+	    {"pchar", pchar_handler},
 	    {NULL, NULL}};
-	int i = 0, len = 11;
+	int i = 0, len = 12;
 
 	if (opcode[0] == '#')
 		return (nop_handler);

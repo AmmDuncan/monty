@@ -29,5 +29,6 @@ void sub_handler(stack_t **stack, unsigned int line);
 void div_handler(stack_t **stack, unsigned int line);
 void mul_handler(stack_t **stack, unsigned int line);
 void mod_handler(stack_t **stack, unsigned int line);
+void pchar_handler(stack_t **stack, unsigned int line);
 
 #endif
