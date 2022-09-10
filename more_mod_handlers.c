@@ -78,5 +78,5 @@ void pchar_handler(stack_t **stack, unsigned int line)
 		exit(EXIT_FAILURE);
 	}
 
-	putchar(n);
+	printf("%c\n", n);
 }
