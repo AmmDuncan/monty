@@ -72,7 +72,7 @@ void pchar_handler(stack_t **stack, unsigned int line)
 
 	n = (*stack)->n;
 
-	if (n < 0 || n > 255)
+	if (n < 0 || n > 127)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
 		exit(EXIT_FAILURE);
