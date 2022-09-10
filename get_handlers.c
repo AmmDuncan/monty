@@ -73,5 +73,6 @@ void pstr_handler(_stack_t **stack, unsigned int line)
 {
 	(void)line;
 
-	print_stack_chr(*stack);
+	if (*stack != NULL)
+		print_stack_chr(*stack);
 }
