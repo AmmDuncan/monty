@@ -13,6 +13,12 @@ void print_stack_chr(const _stack_t *h)
 	const _stack_t *cur_node;
 	int n;
 
+	if (h == NULL)
+	{
+		printf("\n");
+		return;
+	}
+
 	size = 0;
 	cur_node = h;
 	n = cur_node->n;
